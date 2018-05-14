@@ -94,33 +94,57 @@ zCatMulta.innerHTML =  '<label class="ipsFieldRow_label">'
 var zInfracao = document.createElement('div');
 zInfracao.className = 'mikasmonkey categoria';
 zInfracao.setAttribute('id','catinfracao');
+var conteudoinfracao = '<ul class="ipsField_fieldList">';
 infracao.forEach(function(item, index){
-    zInfracao.innerHTML += '<input type="checkbox" name="infracao" id="infracao'+index+'" onchange=""  value="'+index+'"> ' + item + '<br>';
+conteudoinfracao += '<li><span class="ipsCustomInput">'
+                 + '<input type="checkbox" name="infracao" id="infracao'+index+'" onchange=""  value="'+index+'">'
+                 + '<span></span></span>'
+                 + '<div class="ipsField_fieldList_content"><label>'+item+'</label></div></li>';
 });
+conteudoinfracao += '</ul>';
+zInfracao.innerHTML=conteudoinfracao;
 
 //Multas de Infrações leves
 var zLeve = document.createElement('div');
 zLeve.className= 'mikasmonkey categoria';
 zLeve.setAttribute('id', 'catleve');
+var conteudoleve = '<ul class="ipsField_fieldList">';
 leve.forEach(function(item, index){
-    zLeve.innerHTML += '<input type="checkbox" name="leve" id="leve'+index+'" onchange=""  value="'+index+'"> ' + item + '<br>';
+conteudoleve += '<li><span class="ipsCustomInput">'
+                 + '<input type="checkbox" name="leve" id="leve'+index+'" onchange=""  value="'+index+'">'
+                 + '<span></span></span>'
+                 + '<div class="ipsField_fieldList_content"><label>'+item+'</label></div></li>';
 });
+conteudoleve+= '</ul>';
+zLeve.innerHTML=conteudoleve
 
 //Multas de Infrações médias
 var zMedia = document.createElement('div');
 zMedia.className='mikasmonkey categoria';
 zMedia.setAttribute('id','catmedia');
+var conteudomedio = '<ul class="ipsField_fieldList">';
 media.forEach(function(item, index){
-    zMedia.innerHTML += '<input type="checkbox" name="media" id="media'+index+'" onchange=""  value="'+index+'"> ' + item + '<br>';
+conteudomedio += '<li><span class="ipsCustomInput">'
+                 + '<input type="checkbox" name="media" id="media'+index+'" onchange=""  value="'+index+'">'
+                 + '<span></span></span>'
+                 + '<div class="ipsField_fieldList_content"><label>'+item+'</label></div></li>';
 });
+conteudomedio+='</ul>';
+zMedia.innerHTML=conteudomedio;
 
 //Multas de Infrações Graves
 var zGrave = document.createElement('div');
 zGrave.className='mikasmonkey categoria';
 zGrave.setAttribute('id','catgrave');
+var conteudograve = '<ul class="ipsField_fieldList">';
 grave.forEach(function(item, index){
-    zGrave.innerHTML += '<input type="checkbox" name="grave" id="grave'+index+'" onchange=""  value="'+index+'"> ' + item + '<br>';
+conteudograve += '<li><span class="ipsCustomInput">'
+                 + '<input type="checkbox" name="grave" id="grave'+index+'" onchange=""  value="'+index+'">'
+                 + '<span></span></span>'
+                 + '<div class="ipsField_fieldList_content"><label>'+item+'</label></div></li>';
 });
+conteudograve+='</ul>';
+zGrave.innerHTML=conteudograve;
 
 //Botão inicializador do script
 var zScript       = document.createElement ('button');
@@ -134,13 +158,18 @@ $("<br>").appendTo( ".ipsForm li:last" );
 //Lista de todos os agentes
 var zAgentes = document.createElement('li');
 zAgentes.className= 'ipsFieldRow ipsClearfix mikasmonkey';
-zAgentes.innerHTML = '<label class="ipsFieldRow_label" for="form_field_6">'
+var conteudoagentes = '<label class="ipsFieldRow_label" for="form_field_6">'
                    + 'Agentes Envolvidos <span class="ipsFieldRow_required">Obrigatório</span>'
-                   + '</label>'
+                   + '</label><ul class="ipsField_fieldList">'
                    ;
 agentes.forEach(function(item, index){
-zAgentes.innerHTML += '<input type="checkbox" name="agente" id="agente'+index+'" onchange=""  value="'+index+'"> ' + item + '<br>';
+conteudoagentes += '<li><span class="ipsCustomInput">'
+                 + '<input type="checkbox" name="agente" id="agente'+index+'" onchange=""  value="'+index+'">'
+                 + '<span></span></span>'
+                 + '<div class="ipsField_fieldList_content"><label>'+item+'</label></div></li>';
 });
+conteudoagentes += '</ul>';
+zAgentes.innerHTML=conteudoagentes;
 zAgentes.setAttribute('id','AgentesContainer');
 
 
