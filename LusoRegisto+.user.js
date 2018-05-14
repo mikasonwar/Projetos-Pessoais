@@ -74,21 +74,63 @@ var grave = [
     'Grave4',
 ];
 
-//Elementos
+//CSS
 
-//Categoria das multas
-var zCatMulta = document.createElement('li');
-zCatMulta.className = 'mikasmonkey';
-zCatMulta.setAttribute('id','catmultali');
-zCatMulta.innerHTML =  '<label class="ipsFieldRow_label">'
-                       + 'Multas: <span class="ipsFieldRow_required">Obrigatório</span>'
-                       + '</label><br>'
-                       + '<select name="multa" id="catmulta">'
-                       + '<option value="infracao" selected>Infrações de trânsito</option>'
-                       + '<option value="leve">Infrações Leves</option>'
-                       + '<option value="media">Infrações Médias</option>'
-                       + '<option value="grave">Infrações Graves</option>'
-                       + '</select>';
+GM_addStyle ( `
+  .Mikasbutton {
+    border-radius: 0px !important;
+    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    border: 0px solid rgba(0,0,0,0.1) !important;
+  }
+
+  .mikasespaco {
+    display:block !important;
+    padding-left: 10px !important;
+    padding-bottom: 10px !important;
+    background: #272727 !important;
+  }
+
+  .MikasActive {
+    background: #4e0001 !important;
+    color: #ffffff !important;
+  }
+
+  .mikastab {
+    background: #9b0002;
+    border-radius: 10px;
+  }
+` );
+
+
+// Testes
+// ------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+// ------------------------------------------------------------------------------------------------------------------------------------------------------
+//Elementos
+//Tabs das multas
+  var MultasTab = document.createElement('div');
+  MultasTab.className = "mikastab mikasmonkey";
+  MultasTab.setAttribute("id", "MikasTab");
+  MultasTab.innerHTML= '<button class="ipsButton_primary ipsButton Mikasbutton MikasActive" id="infracoes" type="button">'
+                    + 'Infrações de Trânsito</button>'
+                    + '<button class="ipsButton_primary ipsButton Mikasbutton " id="leves" type="button">'
+                    + 'Infrações Leves</button>'
+                    + '<button class="ipsButton_primary ipsButton Mikasbutton " id="medias" type="button">'
+                    + 'Infrações Médias</button>'
+                    + '<button class="ipsButton_primary ipsButton Mikasbutton " id="graves" type="button">'
+                    + 'Infrações Graves</button>'
+                    + '<div id="espacomultas" class="mikasespaco"></div>';
 
 //Multas de Infração de Trânsito
 var zInfracao = document.createElement('div');
@@ -116,7 +158,7 @@ conteudoleve += '<li><span class="ipsCustomInput">'
                  + '<div class="ipsField_fieldList_content"><label>'+item+'</label></div></li>';
 });
 conteudoleve+= '</ul>';
-zLeve.innerHTML=conteudoleve
+zLeve.innerHTML=conteudoleve;
 
 //Multas de Infrações médias
 var zMedia = document.createElement('div');
@@ -182,28 +224,30 @@ document.getElementById ("greasemonkey").addEventListener (
 
 //Funcoes
 
-//Função para decididr a categoria
-function decidircat (zDecidirCat) {
-    switch(document.getElementById("catmulta").value) {
-        case 'infracao':
+//Funcoes para ver multas [Tabs]
+function verinfracoes(zInfracoes) {
             $('.categoria').hide();
             $('#catinfracao').show();
-            break;
-        case 'leve':
+            $('.MikasActive').removeClass("MikasActive");
+            $('#infracoes').addClass("MikasActive");
+}
+function verleves(zLeves) {
             $('.categoria').hide();
             $('#catleve').show();
-            break;
-        case 'media':
+            $('.MikasActive').removeClass("MikasActive");
+            $('#leves').addClass("MikasActive");
+}
+function vermedias(zMedias) {
             $('.categoria').hide();
             $('#catmedia').show();
-            break;
-        case 'grave':
+            $('.MikasActive').removeClass("MikasActive");
+            $('#medias').addClass("MikasActive");
+}
+function vergraves(zGraves) {
             $('.categoria').hide();
             $('#catgrave').show();
-            break;
-        default:
-            alert("Erro");
-    }
+            $('.MikasActive').removeClass("MikasActive");
+            $('#graves').addClass("MikasActive");
 }
 
 //Função para dar DEBUG ao programa
@@ -296,20 +340,25 @@ function ScriptStart (zEvent) {
                              + '<br><span class="ipsFieldRow_desc">O que se passou para o individuo ser detido?</span></div>'
                              ;
             $(mikas2).insertBefore("#form_field_7");
+
             //insere Categoria de multas
-            $(zCatMulta).insertBefore("#form_field_7");
+            $(MultasTab).insertBefore("#form_field_7");
+
             //Insere e esconde as multas
-            $(zInfracao).insertBefore("#form_field_7");
-            $(zLeve).insertBefore("#form_field_7");
+
+            $(zInfracao).appendTo("#espacomultas");
+            $(zLeve).appendTo("#espacomultas");
             $('#catleve').hide();
-            $(zMedia).insertBefore("#form_field_7");
+            $(zMedia).appendTo("#espacomultas");
             $('#catmedia').hide();
-            $(zGrave).insertBefore("#form_field_7");
+            $(zGrave).appendTo("#espacomultas");
             $('#catgrave').hide();
             $('<br>').insertBefore("#form_field_7");
             //Ativa script de decidir categoria quando esta é mudada
-            document.getElementById("catmulta").addEventListener("change", decidircat, false);
-
+            document.getElementById("infracoes").addEventListener("click", verinfracoes, false);
+            document.getElementById("leves").addEventListener("click", verleves, false);
+            document.getElementById("medias").addEventListener("click", vermedias, false);
+            document.getElementById("graves").addEventListener("click", vergraves, false);
             //Ativa script de resumir tudo para as observações adicionais
             document.getElementById ("mikas_1").addEventListener("keyup", resumo, false);
             document.getElementById ("mikas_2").addEventListener("keyup", resumo, false);
