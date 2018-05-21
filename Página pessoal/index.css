@@ -5,13 +5,18 @@ font-family: 'Questrial', sans-serif;
 */
 
 body {
-  background-image: url(resources/images/bg.jpg);
+  background-image: url(resources/images/bg2.jpg);
   background-color: #6A8DFFFF;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 @media only screen and (min-width: 600px) {
   .principal { width:90vw; }
   .avatar {width:90%;}
+}
+.conteudo {
+  padding: 10px;
 }
 
 .containerexperiencia {
@@ -28,7 +33,6 @@ body {
 .principal {
   background-color: #c6d1ffeb;
   width: 700px;
-  height: 1000px;
   margin: auto;
   border-radius: 20px;
   position: relative;
@@ -37,6 +41,12 @@ body {
 .headercat{
   padding:0px;
   margin:auto;
+  display:block;
+}
+
+.headercat2{
+  display: flex;
+  align-items:center;
 }
 
 .texto {
@@ -128,9 +138,8 @@ body {
   flex: 1 100%;
   height: 2px;
   background-color: #74BED8FF;
-  margin-bottom: 10px;
 }
-}
+
 
 .alcunha {
   font-family: 'Roboto Mono', monospace;
@@ -143,6 +152,13 @@ body {
   bottom: 0;
   left: 0;
 }
+
+.espacolinks{
+  flex: 1 100%;
+  height: 70px;
+  display: block;
+}
+
 .linksdireita {
   padding: 10px;
   position: absolute;
@@ -154,6 +170,9 @@ body {
   margin-right: 15px
 }
 
+.ulinks:hover {
+  text-decoration: underline !important;
+}
 
 /*Remover links*/
 
