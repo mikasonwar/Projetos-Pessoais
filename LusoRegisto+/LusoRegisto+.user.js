@@ -47,31 +47,68 @@ var agentes = [
 ];
 
 var infracao = [
-    'Infracao1',
-    'Infracao2',
-    'Infracao3',
-    'Infracao4',
+    'Uso abusivo da buzina',
+    'Veículo Danificado',
+    'Circulação fora da estrada',
+    'Estacionamento desajeitado / proibido',
+    'Cruzar/Pisar uma linha contínua',
+    'Faroís/Luzes Desligados',
+    'Desrespeito do sinal de STOP',
+    'Paragem perigosa/proibida',
+    'Utilização de telemóvel ao volante',
+    'Pertubação dentro da via pública',
+    'Sem capacete em cima de uma motorizada',
+    'Desrespeito a um veiculo em emergência',
+    'Desrespeito do semáforo',
+    'Circulação no sentido contrário',
+    'Ultrapassagem perigosa',
+    'Conduzir sem carta de condução',
+    'Excesso de velocidade - 80+ KM/H',
+    'Excesso de velocidade - 120+ KM/H',
+    'Fuga às autoridades'
 ];
 
 var leve = [
-    'Leve1',
-    'Leve2',
-    'Leve3',
-    'Leve4',
+    'Impedir a circulação',
+    'Insultos com / entre civis',
+    'Ameaça verbal ou intimidação para o civil',
+    'Pertubação aos agentes de autoridades',
+    'Manisfestação ilegal',
+    'Degradação da via pública',
+    'Insultar agente de polícia',
+    'Impedir uma operação policial',
+    'Ameaça verbal ou intimidação para o polícia'
 ];
 
 var media = [
-    'Media1',
-    'Media2',
-    'Media3',
-    'Media4',
+    'Exibição de arma letal',
+    'Porte de arma legal sem licença',
+    'Roubar civil/agente de estado',
+    'Porte de arma ilegal',
+    'Roubo',
+    'Roubo de carro',
+    'Posse de estupefacientes',
+    'Tentativa de roubo de loja',
+    'Posse de Dinheiro Sujo',
+    'Roubo de loja',
+    'Captura de refém - civil',
+    'Tentativa de roubo de banco',
+    'Produção de estupefacientes',
+    'Fraude à empresa',
+    'Venda de estupefacientes',
+    'Tentativa de corrupção',
+    'Roubo de banco'
 ];
 
 var grave = [
-    'Grave1',
-    'Grave2',
-    'Grave3',
-    'Grave4',
+    'Uso de arma de fogo',
+    'Tentativa de assassinato sobre civil',
+    'Assassinato involuntário',
+    'Uso de arma de fogo sobre um agente do estado',
+    'Rapto de um civil',
+    'Assassinato em civil',
+    'Rapto de um agente do estado',
+    'Assassinato em agente do estado'
 ];
 
 //CSS
